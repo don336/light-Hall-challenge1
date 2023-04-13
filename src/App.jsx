@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { increment, decrement } from "./redux/numberSlice";
 import { useSelector, useDispatch } from "react-redux";
 
