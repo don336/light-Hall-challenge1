@@ -1,18 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const lsNumber = localStorage.getItem("count");
 const numberSlice = createSlice({
   name: "counter",
   initialState: {
-    number: 0,
+    value: lsNumber ? lsNumber : 0,
   },
   reducers: {
-    increment: async (state, action) => {
-      const num =  (state.number + 1);
+    increment: (state, action) => {
+      const num = (state.value += 1);
+      console.log(state.value);
       localStorage.setItem("count", num);
     },
-    decrement: async (state, action) => {
-      const num =  (state.number - 1);
+    decrement: (state, action) => {
+      const num = (state.value -= 1);
       localStorage.setItem("count", num);
+      if (state.value === 0) {
+        localStorage.removeItem("count");
+      }
     },
   },
 });

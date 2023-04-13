@@ -4,7 +4,7 @@ import { increment, decrement } from "./redux/numberSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const App = () => {
-  const number = useSelector((state) => state.counter);
+  const number = useSelector((state) => state.value);
   const dispatch = useDispatch();
   const handleIncrement = () => {
     dispatch(increment());
